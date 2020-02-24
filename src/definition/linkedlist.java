@@ -33,6 +33,28 @@ public class linkedlist<E> implements singlaLinkedListadt
         node.next=new Node(item,node.getNext());
         size++;
     }
+    private E removeFirst() {
+        Node<E> temp = head;
+        E response = null;
+        if (head != null) {
+            head = head.getNext();
+        }
+        if (temp != null) {
+            size--;
+            response = temp.getData();
+
+        }
+        return response;
+    }
+    private E removeAfter(Node<E> afternode) {
+        Node<E> temp = afternode.getNext();
+        if (temp != null) {
+            afternode.next = temp.getNext();
+            size--;
+        }
+        E respone = temp.getData();
+        return respone;
+    }
 
 
     @Override
