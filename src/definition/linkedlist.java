@@ -23,6 +23,17 @@ public class linkedlist<E> implements singlaLinkedListadt
 
         return response;
     }
+    private void addFirst(E item){
+        if (size==0){
+            head=new Node<E>(item,head);
+        }
+        size++;
+    }
+    private void addAfter(Node<E>node,E item){
+        node.next=new Node(item,node.getNext());
+        size++;
+    }
+
 
     @Override
     public void add(Object item) {
