@@ -1,6 +1,38 @@
 package definition;
 
-public class linkedlist {
+import adt.singlaLinkedListadt;
+
+public class linkedlist<E> implements singlaLinkedListadt
+{
+    Node<E> head=null;
+    public int size=0;
+
+    private Node<E> getNode(int index) {
+        Node<E> response=null;
+        if(index<0 || index>size){
+            throw new IndexOutOfBoundsException(Integer.toString(index));
+        }
+        else{
+            Node<E> temp=head;
+            for(int i=0;i<index && temp!=null ;i++){
+                temp=temp.getNext();
+
+            }
+            response=temp;
+        }
+
+        return response;
+    }
+
+    @Override
+    public void add(Object item) {
+
+    }
+
+    @Override
+    public Object getData(int index) {
+        return null;
+    }
 
     private static class Node<E> {
         private E data;
