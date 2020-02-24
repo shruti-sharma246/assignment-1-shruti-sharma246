@@ -2,7 +2,7 @@ package definition;
 
 import adt.singlaLinkedListadt;
 
-public class linkedlist<E> implements singlaLinkedListadt
+public class linkedlist<E> implements singlaLinkedListadt<E>
 {
     Node<E> head=null;
     public int size=0;
@@ -56,14 +56,24 @@ public class linkedlist<E> implements singlaLinkedListadt
         return respone;
     }
 
+    public void add(int index,E item) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        } else if (index == 0) {
+            addFirst(item);
+        } else {
+            addAfter(getNode(index - 1), item);
+        }
+    }
+
 
     @Override
-    public void add(Object item) {
-
+    public void add(E item) {
+        add(size ,item);
     }
 
     @Override
-    public Object getData(int index) {
+    public E getData(int index) {
         return null;
     }
 
